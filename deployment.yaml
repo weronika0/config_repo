@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hefalump
+  name: hefalump
+spec:
+  replicas: 4
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hefalump
+    spec:
+      containers:
+      - name: hefalump
+        image: weronika00/hefalump:01
+        ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
+        resources: {}
+  selector:
+    matchLabels:
+      app: hefalump
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 5
+      maxUnavailable: 2
+  
