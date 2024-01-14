@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hefalump
-        image: weronika00/hefalump:01
+        image: weronika00/hefalump:02
         ports:
           - name: http
             containerPort: 80
